@@ -10,6 +10,7 @@
 | --- | --- |
 | `washer-git-workflow` | 이슈 → 브랜치 → 커밋 → PR 규칙(`<이모지> :: <한글 설명>`)과 이슈·PR 템플릿. 커밋·PR에 Claude 표기를 남기지 않음 |
 | `add-code` | 코드를 추가하기 전에 중복 코드를 찾고 위치·이름을 정하는 체크리스트 (Flutter / Riverpod 프로젝트용) |
+| `flutter-contrib` | flutter/flutter 이슈를 내 fork에서 작업하는 순서(조사 → 계획 승인 → 로컬 커밋 → draft PR)와 Flutter 기여 규칙·AI 정책. `/flutter-contrib <이슈번호>`로 호출 |
 
 ### 훅 (`hooks/`)
 
