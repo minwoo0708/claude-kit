@@ -19,7 +19,7 @@
 | `washer-dart/format_dart.dart` | PostToolUse (Write/Edit) | Dart 파일에 `dart format` 적용 |
 | `washer-dart/check_dart_conventions.dart` | PostToolUse (Write/Edit) | 파일명·위치·레이어 import·중복 선언 검사 |
 | `washer-dart/check_module_readme.dart` | Stop | 모듈 구조가 바뀌었는데 README가 그대로면 확인 요청 |
-| `flutter-contrib-guard/flutter-contrib-guard.js` | PreToolUse (Bash) | Flutter 기여 규칙(PR 개수, 이슈 연결, main 직접 푸시, rebase, `dart format`)을 어기는 명령 차단 |
+| `flutter-contrib-guard/flutter-contrib-guard.js` | PreToolUse (Bash/Edit/Write) | Flutter 저장소에서만 작동하는 기여 규칙 가드. Git 규칙(master 직접 푸시·merge·force push 금지), PR 규칙(draft만, 이슈 링크·템플릿 필수), AI 정책(댓글·`gh pr ready` 금지), 코드 규칙(공백·라이선스·`dart format`·TODO 형식)을 어기면 차단하거나 확인을 요청. 사용자 전역(`~/.claude/hooks/`)에 설치 |
 
 ## 사용법
 
@@ -47,3 +47,12 @@ cp hooks/washer-dart/*.dart .claude/hooks/
 
 - 훅은 Dart(`dart`)와 Node.js(`node`)가 설치되어 있어야 동작합니다.
 - Washer 훅과 스킬은 Washer 앱의 폴더 구조(`lib/core`, `lib/features`, `lib/shared`)를 기준으로 작성되었습니다. 다른 프로젝트에서는 경로 규칙을 맞춰 수정해서 사용하세요.
+
+### flutter-contrib-guard 설치
+
+이 훅은 `~/.claude/hooks/`에 복사하고, `settings.snippet.json`을 `~/.claude/settings.json`의 `hooks`에 합칩니다. git remote 이름이 `flutter`인 저장소에서만 작동하고 다른 저장소에서는 아무것도 하지 않습니다.
+
+```bash
+mkdir -p ~/.claude/hooks
+cp hooks/flutter-contrib-guard/flutter-contrib-guard.js ~/.claude/hooks/
+```

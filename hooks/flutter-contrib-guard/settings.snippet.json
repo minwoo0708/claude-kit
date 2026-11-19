@@ -2,11 +2,11 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Bash",
+        "matcher": "Bash|Edit|Write|MultiEdit",
         "hooks": [
           {
             "type": "command",
-            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/flutter-contrib-guard.js\""
+            "command": "node \"$HOME/.claude/hooks/flutter-contrib-guard.js\""
           }
         ]
       }
